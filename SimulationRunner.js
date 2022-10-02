@@ -5,7 +5,7 @@ class SimulationRunner extends HTMLElement {
     setTimeout(() => {
       // our inner content isn't available immediately in chrome
       this.querySelector('.step').addEventListener('click', () => this.step());
-
+      this.querySelector('.play').addEventListener('click', () => this.play());
       this.querySelector('.change-matrix-buttons')
         .addEventListener('click', event => {
           const matrixName = event.target.getAttribute('data-matrix');
@@ -79,6 +79,10 @@ class SimulationRunner extends HTMLElement {
     return count;
   }
 
+  play() {
+    setInterval(() => {this.step()}, 100);
+  }
+ 
   render() {
     this.simulationCanvas.render(this.matrix);
   }

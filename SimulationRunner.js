@@ -9,7 +9,6 @@ class SimulationRunner extends HTMLElement {
     this.simulationCanvas = document.querySelector('simulation-canvas');
 
     setTimeout(() => {
-      // our inner content isn't available immediately in chrome
       this.querySelector('.step').addEventListener('click', () => this.step());
       this.querySelector('.play').addEventListener('click', () => this.play());
       this.querySelector('.pause').addEventListener('click', () => this.pause());
@@ -55,6 +54,12 @@ class SimulationRunner extends HTMLElement {
           }
         }
       }
+    }
+
+    //updates current matrix with updated cells
+    for(let update in matrixUpdates) {
+      let updateList = update.split(",");
+      this.matrix[updateList[0]][updateList[1]] = matrixUpdates[update];
     }
 
     this.render();

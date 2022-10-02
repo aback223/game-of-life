@@ -11,7 +11,7 @@ class SimulationRunner extends HTMLElement {
     setTimeout(() => {
       // our inner content isn't available immediately in chrome
       this.querySelector('.step').addEventListener('click', () => this.step());
-      this.querySelector('.play').addEventListener('click', () => this.play(100));
+      this.querySelector('.play').addEventListener('click', () => this.play());
       this.querySelector('.pause').addEventListener('click', () => this.pause());
       this.querySelector('.speed-down').addEventListener('click', () => this.speedDown());
       this.querySelector('.speed-up').addEventListener('click', () => this.speedUp());
@@ -88,7 +88,12 @@ class SimulationRunner extends HTMLElement {
     return count;
   }
 
-  play(speed) {
+  play(speed = this.speed) {
+    if(this.timer === null) {
+      this.timer = setInterval(() => this.step(), speed);
+    } 
+    //clears the first setInterval before doing setInterval again
+    this.pause();
     this.timer = setInterval(() => this.step(), speed);
   }
 

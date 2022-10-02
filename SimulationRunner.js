@@ -28,7 +28,27 @@ class SimulationRunner extends HTMLElement {
   }
 
   step() {
-    alert('step()');
+    //holds the updated matrix
+    let matrixUpdates = {};
+
+    for(let row = 0; row < this.matrix.length; row++) {
+      for(let col = 0; col < this.matrix[0].length; col++) {
+        //if the cell is a live cell, or 1
+        //it dies, or becomes 0, when it has less than 2 or more than 3 neighbors
+        let cell = [row, col];
+        if (this.matrix[row][col] === 1) {
+          if (this.liveNeighborCount(cell) < 2 || this.liveNeighborCount(cell) > 3) {
+            matrixUpdates[`${row},${col}`] = 0;
+          }
+        } else if (this.matrix[row][col] === 0) {
+          if(this.liveNeighborCount(cell) === 3) {
+            matrixUpdates[`${row},${col}`] = 1;
+          }
+        }
+      }
+    }
+
+    this.render();
   }
 
   render() {

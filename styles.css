@@ -1,0 +1,27 @@
+main {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 100vh;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+body, button {
+  font-family: 'Share Tech Mono', monospace;
+}
+
+i {
+  cursor: pointer
+}
+
+.change-matrix-buttons > * {
+  margin: 5px;
+}
+
+.speed-value {
+  width: 50px;
+  display: inline-block;
+  text-align: center;
+}

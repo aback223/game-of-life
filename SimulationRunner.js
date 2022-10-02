@@ -1,4 +1,9 @@
 class SimulationRunner extends HTMLElement {
+  constructor() {
+    super();
+    this.timer = null;
+  } 
+  
   connectedCallback() {
     this.simulationCanvas = document.querySelector('simulation-canvas');
 
@@ -80,7 +85,7 @@ class SimulationRunner extends HTMLElement {
   }
 
   play() {
-    setInterval(() => {this.step()}, 100);
+    this.timer = setInterval(() => {this.step()}, 100)
   }
  
   render() {

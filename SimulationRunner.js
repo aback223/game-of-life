@@ -2,6 +2,7 @@ class SimulationRunner extends HTMLElement {
   constructor() {
     super();
     this.timer = null;
+    this.speed = 100;
   } 
   
   connectedCallback() {
@@ -10,8 +11,10 @@ class SimulationRunner extends HTMLElement {
     setTimeout(() => {
       // our inner content isn't available immediately in chrome
       this.querySelector('.step').addEventListener('click', () => this.step());
-      this.querySelector('.play').addEventListener('click', () => this.play());
+      this.querySelector('.play').addEventListener('click', () => this.play(100));
       this.querySelector('.pause').addEventListener('click', () => this.pause());
+      this.querySelector('.speed-down').addEventListener('click', () => this.speedDown());
+      this.querySelector('.speed-up').addEventListener('click', () => this.speedUp());
       this.querySelector('.change-matrix-buttons')
         .addEventListener('click', event => {
           const matrixName = event.target.getAttribute('data-matrix');
@@ -85,12 +88,26 @@ class SimulationRunner extends HTMLElement {
     return count;
   }
 
-  play() {
-    this.timer = setInterval(() => {this.step()}, 100)
+  play(speed) {
+    this.timer = setInterval(() => this.step(), speed);
   }
 
   pause() {
     clearInterval(this.timer);
+  }
+
+  speedUp() {
+    this.speed += 50;
+    this.pause();
+    this.play(this.speed);
+  }
+
+  speedDown() {
+    if (this.speed > 0) {
+      this.speed -= 50;
+      this.pause();
+      this.play(this.speed);
+    }
   }
  
   render() {

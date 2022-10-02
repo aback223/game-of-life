@@ -8,10 +8,10 @@ The purpose of this project is to add logic to buttons that will update the 2d m
 - play simulation at different speeds
 
 ## Time Breakdown
-~30 min setting up, writing out my plan
-~1hr 30min for basic requirements of the project ie. flushing out step(), adding functionality to play and pause
-~30 min working on style changes, and ability to change speed
-~1hr trying different things to add on as a bonus. ran out of time in the 4hr limit. fixed up bugs with remaining time. 
+~30 min setting up, writing out my plan  
+~1hr 30min for basic requirements of the project ie. flushing out step(), adding functionality to play and pause  
+~30 min working on style changes, and ability to change speed  
+~1hr trying different things to add on as a bonus. ran out of time in the 4hr limit. fixed up bugs with remaining time.  
 
 ## Screenshots, Videos Of Working Project
 

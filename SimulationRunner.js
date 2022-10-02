@@ -51,6 +51,34 @@ class SimulationRunner extends HTMLElement {
     this.render();
   }
 
+  liveNeighborCount(cellPosition) {
+    let count = 0;
+    const neighbors = [
+      [-1, -1], //top left
+      [-1, 0], //top middle
+      [-1, 1], //top right
+      [0, -1], //left
+      [0, 1], //right
+      [1, -1], //bottom left
+      [1, 0], //bottom middle
+      [1, 1] // bottom right
+    ]
+    for (const neighbor of neighbors) {
+      let row = cellPosition[0] + neighbor[0];
+      let col = cellPosition[1] + neighbor[1];
+
+      //accounts for when a cell at current position is at a border
+      if (row === -1) row = this.matrix.length - 1;
+      if (row === this.matrix.length) row = 0; 
+      if (col === -1) col = this.matrix[0].length - 1;
+      if(col === this.matrix[0].length) col = 0;
+      //increases the live count if the neighbor at specific coordinate is 1
+      if(this.matrix[row][col] === 1) count ++;
+    }
+
+    return count;
+  }
+
   render() {
     this.simulationCanvas.render(this.matrix);
   }

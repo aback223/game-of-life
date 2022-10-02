@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="StartMatrices.js"></script>
+    <script src='SimulationCanvas.js'></script>
+    <script src='SimulationRunner.js'></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet"> 
+  </head>
+
+  <style>
+
+
+    body {
+      background: #333;
+      color: rgba(255, 255, 255, 0.87);
+      width: 100%;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    main {
+      width: 400px;
+      margin: auto;
+    }
+
+    simulation-runner {
+      display: block;
+      margin: 12px;
+    }
+  </style>
+<body>
+  <main>
+    <h1>Conway's Game of Life</h1>
+    <simulation-canvas width="400" height="400"></simulation-canvas>
+    <simulation-runner>
+      <button class="pause">pause</button>
+      <button class="step">step</button>
+      <button class="play">play</button>
+
+      <hr/>
+
+      <div class="change-matrix-buttons">
+        <button data-matrix="SPINNER">spinner</button>
+        <button data-matrix="GLIDER">glider</button>
+        <button data-matrix="SHIP">ship</button>
+        <button data-matrix="STATIONARY">stationary</button>
+        <button data-matrix="CROSSHAIR">crosshair</button>
+        <button data-matrix="BOOM">boom</button>
+        <button data-matrix="PERIOD_25_OSC">25 period oscillator</button>
+      </div>
+    </simulation-runner>
+  </main>
+</body>

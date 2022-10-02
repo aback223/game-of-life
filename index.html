@@ -4,14 +4,13 @@
     <script src="StartMatrices.js"></script>
     <script src='SimulationCanvas.js'></script>
     <script src='SimulationRunner.js'></script>
-
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://kit.fontawesome.com/3596e7fc81.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet"> 
   </head>
 
   <style>
-
-
     body {
       background: #333;
       color: rgba(255, 255, 255, 0.87);
@@ -30,14 +29,18 @@
     }
   </style>
 <body>
-  <main>
+  <main id="main">
     <h1>Conway's Game of Life</h1>
     <simulation-canvas width="400" height="400"></simulation-canvas>
     <simulation-runner>
-      <button class="pause">pause</button>
-      <button class="step">step</button>
-      <button class="play">play</button>
-
+      <div class="control-buttons">
+        <button class="play"><i class="fa-solid fa-play"></i></button>
+        <button class="pause"><i class="fa-solid fa-pause"></i></button>
+        <button class="step">step</button>
+        <div class="speed-value">speed:</div>
+        <button class="speed-up">-</button>
+        <button class="speed-down">+</button>
+      </div>
       <hr/>
 
       <div class="change-matrix-buttons">
